@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Cliente web de monitoria do Lifeguard System"
+    />
+    <meta name="theme-color" content="#5a5a78" />
+  
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon/favicon-16x16.png"
+    />
+  
+    <!-- CSS -->
+    <link href="/css/main.css" rel="stylesheet" />
+    <link
+      href="/css/dark-theme.css"
+      rel="stylesheet"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      href="/css/responsive.css"
+      re="stylesheet"
+      media="(max-width: 1300px)"
+    />
+  
+    <title>{% block title %}{% endblock %} | Lifeguard - Nestlé</title>
+  </head>
+  
+  <!-- Components -->
+  {% include 'atom/button-anchor/button-anchor.html' %}
+  {% include 'atom/card/card.html' %}
+  {% include 'atom/flex/flex.html' %}
+  {% include 'atom/list-holder/list-holder.html' %}
+  {% include 'atom/logo/logo.html' %} 
+  {% include 'atom/title/title.html' %} 
+
+  {% include 'molecule/chart-bar-horizontal/chart-bar-horizontal.html' %}
+  {% include 'molecule/dialog/dialog.html' %}
+  {% include 'molecule/detailsCard/detailsCard.html' %} 
+  {% include 'molecule/menuItem/menuItem.html' %} 
+  {% include 'molecule/summaryItem/summaryItem.html' %} 
+  {% include 'molecule/emptyState/emptyState.html' %} 
+
+  {% include 'organism/topNav/topNav.html' %} 
+  {% include 'organism/summary/summary.html' %} 
+  {% include 'organism/leftMenu/leftMenu.html' %} 
+  {% include 'organism/cardList/cardList.html' %}
+
+  <body>
+    <custom-top-nav> </custom-top-nav>
+    <main>
+      <custom-left-menu> </custom-left-menu>
+      <article>
+        {% block content %}{% endblock %}
+      </article>
+    </main>
+  </body>
+</html>

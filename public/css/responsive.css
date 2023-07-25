@@ -1,0 +1,9 @@
+@media (max-width: 1300px) {
+  :root {
+    --base-size: 13px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}

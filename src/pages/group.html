@@ -1,5 +1,33 @@
 ---
-permalink: /group/
+permalink: "/group/"
 ---
 
+{% extends "partials/content.html" %} {% block content %}
 <h1>Página de grupo</h1>
+
+<custom-card>
+  <custom-title type="problems">Problemas</custom-title>
+  <custom-card-list
+    data-item="categoryItem"
+    data-for="{{group}}"
+    type="problems"
+  >
+  </custom-card-list>
+</custom-card>
+
+<custom-card>
+  <custom-title type="warnings">Avisos</custom-title>
+  <custom-card-list
+    data-item="categoryItem"
+    data-for="{{group}}"
+    type="warnings"
+  >
+  </custom-card-list>
+</custom-card>
+
+<custom-card>
+  <custom-title type="normal">Normal</custom-title>
+  <custom-card-list data-item="categoryItem" data-for="{{group}}" type="normal">
+  </custom-card-list>
+</custom-card>
+{% endblock %}
