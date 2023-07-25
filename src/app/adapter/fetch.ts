@@ -1,44 +1,46 @@
-export class fetchAdapter {
-  #rawData;
+import { External } from "../entity/store";
 
-  constructor(domain, path) {
+export class FetchAdapter implements External {
+  domain: string;
+  path?: string;
+  #rawData?: { response?: Object };
+
+  constructor(domain: string, path?: string) {
     this.domain = domain;
     this.path = path;
-    this.#rawData = "{}";
+    this.#rawData = {};
   }
 
-  /**
-   *
-   * @param {{[key: string]: string}} [params]
-   */
-  async get(params) {
+  async get(params?: { [key: string]: string }) {
     await this.#fetch({ method: "get", urlParams: params });
     return this;
   }
 
-  /**
-   * @param {{[key: string]: string}} value
-   * @param {{[key: string]: string}} [params]
-   */
-  async set(value, params) {
+  async set(
+    value: { [key: string]: string },
+    params: { [key: string]: string }
+  ) {
     await this.#fetch({ method: "post", bodyData: value, urlParams: params });
     return this;
   }
 
   async asObject() {
-    return await this.#rawData.response.new;
+    return this.#rawData?.response;
   }
 
   asString() {
     return JSON.stringify(this.asObject());
   }
 
-  /**
-   * @param {{method: "get" | "post", bodyData: {[key: string]: string}, urlParams: {[key: string]: string}}} params
-   */
-  async #fetch({ method, bodyData, urlParams }) {
+  async #fetch(params: {
+    method: "get" | "post";
+    bodyData?: { [key: string]: string };
+    urlParams?: { [key: string]: string };
+  }) {
+    const { method, bodyData, urlParams } = params;
+
     const url = new URL(`${this.domain}${this.path}`);
-    const body = this.#valueAsString(bodyData);
+    const body = bodyData && this.#valueAsString(bodyData);
 
     if (urlParams) {
       const queryParams = this.#transformObjectIntoQueryParamsString(urlParams);
@@ -61,8 +63,10 @@ export class fetchAdapter {
 
       this.#rawData = await response.json();
     } catch (error) {
-      this.#rawData = "{}";
-      console.error(`The error occured on fetching the path, .../${this.path}`);
+      this.#rawData = {};
+      console.error(
+        `The error occured when fetching the path, .../${this.path}`
+      );
       throw new Error(error);
     }
 
@@ -76,11 +80,11 @@ export class fetchAdapter {
     return headers;
   }
 
-  #valueAsString(value) {
+  #valueAsString(value: string | Object) {
     return typeof value === "string" ? value : JSON.stringify(value);
   }
 
-  #transformObjectIntoQueryParamsString(object) {
+  #transformObjectIntoQueryParamsString(object: { [key: string]: string }) {
     return new URLSearchParams(object).toString();
   }
 }
