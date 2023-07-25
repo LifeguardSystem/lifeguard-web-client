@@ -1,0 +1,23 @@
+{
+  "name": "lifeguard-web-client",
+  "version": "0.0.0",
+  "description": "A simple Lifeguard web client",
+  "main": "/_site/index.html",
+  "type": "module",
+  "scripts": {
+    "build": "npx @11ty/eleventy --input=src",
+    "start": "npx @11ty/eleventy --input=src --serve",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+  },
+  "author": "",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/LifeguardSystem/lifeguard-web-client/issues"
+  },
+  "homepage": "https://github.com/LifeguardSystem/lifeguard-web-client#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "jest": "^29.6.1",
+    "prettier": "^3.0.0"
+  }
+}
