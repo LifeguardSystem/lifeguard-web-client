@@ -5,7 +5,7 @@ module.exports = function (eleventyConfig) {
   return {
     htmlTemplateEngine: "njk",
     dir: {
-      includes: "components",
+      includes: "src/components",
     },
   };
 };
