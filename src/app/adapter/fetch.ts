@@ -1,6 +1,6 @@
-import { External } from "../entity/store";
+import { ExternalAdapter } from "../entity/store/store.interfaces";
 
-export class FetchAdapter implements External {
+export class FetchAdapter implements ExternalAdapter {
   domain: string;
   path?: string;
   #rawData?: { response?: Object };

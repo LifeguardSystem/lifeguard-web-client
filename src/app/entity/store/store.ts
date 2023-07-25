@@ -1,27 +1,9 @@
-export interface Local {
-  set(dataToSave: Object | Array<unknown>): void;
-  get(): this;
-  asObject(): Object;
-  delete(): void;
-}
-
-interface LocalConstructor {
-  new (domain: string, path?: string): this;
-}
-
-export interface External {
-  get(param?: { [key: string]: string }): Promise<this>;
-  asObject(): Object;
-}
-
-interface ExternalConstructor {
-  new (domain: string, path?: string): this;
-}
+import * as Interface from "./store.interfaces";
 
 export class Store {
-  #local: Local;
-  #cacheManager: Local;
-  #online: External;
+  #local: Interface.LocalAdapter;
+  #cacheManager: Interface.LocalAdapter;
+  #online: Interface.ExternalAdapter;
 
   storeName: string;
   params?: { [key: string]: string };
@@ -33,8 +15,8 @@ export class Store {
     endpoint: string;
     params?: { [key: string]: string };
     ttlInSeconds?: number;
-    fetch: ExternalConstructor & External;
-    local: LocalConstructor & Local;
+    fetch: Interface.ExternalConstructor & Interface.ExternalAdapter;
+    local: Interface.LocalConstructor & Interface.LocalAdapter;
   }) {
     this.storeName = parameters.storeName;
     this.params = parameters.params;
