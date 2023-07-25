@@ -3,13 +3,13 @@ export class Store {
   #cacheManager;
   #online;
 
-  constructor({ collection, endpoint, params, ttlInSeconds, fetch, local }) {
-    this.collection = collection;
+  constructor({ storeName, endpoint, params, ttlInSeconds, fetch, local }) {
+    this.storeName = storeName;
     this.params = params;
     this.endpoint = endpoint;
     this.ttlInSeconds = ttlInSeconds || 86400; //24 hours
 
-    this.#local = new local(this.collection);
+    this.#local = new local(this.storeName);
     this.#cacheManager = new local("cacheManager");
     this.#online = new fetch(this.endpoint);
   }
