@@ -5,7 +5,7 @@
   "main": "/_site/index.html",
   "type": "module",
   "scripts": {
-    "build": "npx @11ty/eleventy",
+    "build": "webpack && npx @11ty/eleventy",
     "start": "npm-run-all pages -p watch:*",
     "pages": "webpack",
     "watch:pages": "webpack --watch",
