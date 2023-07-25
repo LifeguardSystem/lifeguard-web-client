@@ -1,0 +1,45 @@
+<template id="title-template">
+  <style>
+    {% include 'components/atom/title/title.css' %}
+  </style>
+  <h2><span></span><slot></slot></h2>
+</template>
+
+<template id="title-warning">
+  <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="90.2138" cy="126.155" r="10.2138" fill="var(--warning)" />
+    <rect
+      x="81.7764"
+      y="44"
+      width="17.7632"
+      height="60.3947"
+      rx="8.88158"
+      fill="var(--warning)"
+    />
+    <circle cx="90" cy="90" r="82" stroke="var(--warning)" stroke-width="16" />
+  </svg>
+</template>
+
+<template id="title-problem">
+  <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M64.5942 64.4087C61.3826 67.6202 61.3826 72.8272 64.5942 76.0387L78.5159 89.9605L64.4087 104.068C61.1971 107.279 61.1971 112.486 64.4087 115.698C67.6202 118.909 72.8272 118.909 76.0387 115.698L90.146 101.591L104.136 115.581C107.348 118.792 112.555 118.792 115.766 115.581C118.978 112.369 118.978 107.162 115.766 103.951L101.776 89.9605L115.581 76.1556C118.792 72.9441 118.792 67.7371 115.581 64.5256C112.369 61.314 107.162 61.314 103.951 64.5256L90.146 78.3304L76.2242 64.4087C73.0127 61.1971 67.8057 61.1971 64.5942 64.4087Z"
+      fill="var(--problem)"
+    />
+    <circle cx="90" cy="90" r="82" stroke="var(--problem)" stroke-width="16" />
+  </svg>
+</template>
+
+<template id="title-check">
+  <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M124.598 64.4087C121.386 61.1971 116.179 61.1971 112.967 64.4087L79.0699 98.3062L66.0387 85.275C62.8272 82.0635 57.6202 82.0635 54.4087 85.275C51.1971 88.4866 51.1971 93.6935 54.4087 96.9051L73.3739 115.87C76.5855 119.082 81.7924 119.082 85.004 115.87C85.407 115.467 85.7594 115.033 86.0613 114.575L124.598 76.0387C127.809 72.8272 127.809 67.6202 124.598 64.4087Z"
+      fill="var(--text)"
+    />
+    <circle cx="90" cy="90" r="82" stroke="var(--text)" stroke-width="16" />
+  </svg>
+</template>
+
+<script>
+  {% include 'components/atom/title/title.js' %}
+</script>

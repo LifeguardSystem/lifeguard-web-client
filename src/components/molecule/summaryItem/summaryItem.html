@@ -1,0 +1,13 @@
+<template id="summaryItem-template">
+  <style>
+    {% include 'components/molecule/summaryItem/summaryItem.css' %}
+  </style>
+  <div>
+    <strong><slot></slot></strong>
+    <p><slot name="title"></slot></p>
+  </div>
+</template>
+
+<script>
+  {% include 'components/molecule/summaryItem/summaryItem.js' %}
+</script>

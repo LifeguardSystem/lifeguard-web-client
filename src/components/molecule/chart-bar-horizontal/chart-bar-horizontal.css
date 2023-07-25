@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  padding: 0.5rem 0;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.container > * {
+  flex: 1 1 0;
+}
+
+.bar-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bar {
+  width: var(--percent, 0%);
+  height: 1.25rem;
+  background: var(--primary-light);
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.content {
+  font-weight: 500;
+}
+
+.value {
+  background: var(--background);
+  padding: 0.25rem;
+  border-radius: 1rem;
+  margin-left: 0.5rem;
+}

@@ -1,0 +1,23 @@
+a {
+  display: inline-block;
+  text-decoration: none;
+  background: none;
+  border: 1px solid;
+  padding: 0.5rem;
+  color: var(--click);
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0.5rem 0;
+}
+
+a:hover {
+  background-color: var(--click-background);
+}
+
+@media (max-width: 1000px) {
+  a {
+    width: 100%;
+  }
+}

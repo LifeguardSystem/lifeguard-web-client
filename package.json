@@ -5,8 +5,8 @@
   "main": "/_site/index.html",
   "type": "module",
   "scripts": {
-    "build": "npx @11ty/eleventy --input=src",
-    "start": "npx @11ty/eleventy --input=src --serve",
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "author": "",

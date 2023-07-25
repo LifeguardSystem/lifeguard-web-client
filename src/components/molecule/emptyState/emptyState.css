@@ -1,0 +1,38 @@
+div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+strong {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.empty {
+  margin: auto;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 100%;
+  border: 3px dotted var(--primary-light);
+  animation: pulse 2s infinite;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    background: var(--background);
+  }
+  70% {
+    transform: scale(1);
+    background: none;
+  }
+  100% {
+    transform: scale(0.9);
+    background: var(--background);
+  }
+}

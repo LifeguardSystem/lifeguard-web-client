@@ -1,0 +1,11 @@
+section {
+  padding: 1rem;
+  background: var(--select-background);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.secondary {
+  border: 1px solid var(--primary-light);
+  box-shadow: none;
+}

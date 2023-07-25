@@ -1,0 +1,11 @@
+div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+span {
+  color: var(--background);
+  font-size: 1.15rem;
+  text-decoration: none;
+}

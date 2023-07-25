@@ -1,0 +1,13 @@
+header {
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  background: var(--primary);
+  color: var(--background);
+  box-shadow: var(--shadow);
+  z-index: 10;
+}
+
+a {
+  text-decoration: none;
+}

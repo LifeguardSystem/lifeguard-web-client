@@ -1,0 +1,33 @@
+a {
+  text-decoration: none;
+  display: block;
+  width: 20rem;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  color: var(--primary);
+  transition: var(--transition-default);
+  background-color: var(--primary-light);
+}
+
+h3,
+p {
+  margin: 0;
+}
+
+h3 {
+  color: var(--select);
+}
+
+.selected a {
+  background: var(--select-background);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.selected h3 {
+  color: var(--primary);
+}
+
+a:hover {
+  background: var(--select-background);
+}

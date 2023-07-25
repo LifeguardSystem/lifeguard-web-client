@@ -1,0 +1,13 @@
+<template id="topNav-template">
+  <style>
+    {% include 'components/organism/topNav/topNav.css' %}
+  </style>
+  <header>
+    <a href="/"><custom-logo></custom-logo></a>
+    <slot></slot>
+  </header>
+</template>
+
+<script>
+  {% include 'components/organism/topNav/topNav.js' %}
+</script>

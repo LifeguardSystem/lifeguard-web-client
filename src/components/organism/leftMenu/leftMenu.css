@@ -1,0 +1,61 @@
+nav {
+  padding: 1rem;
+  position: sticky;
+  top: 4rem;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  color: var(--primary);
+}
+
+button {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  nav {
+    display: none;
+  }
+  button {
+    display: block;
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background: var(--primary);
+    color: var(--background);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--select-background);
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    z-index: 1;
+  }
+
+  .opened {
+    display: block;
+    position: fixed;
+    background: var(--primary);
+    scroll-behavior: smooth;
+    overflow: scroll;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .opened h2 {
+    display: none;
+  }
+}

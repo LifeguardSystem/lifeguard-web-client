@@ -1,0 +1,38 @@
+ul {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0 1rem;
+  border-bottom: 1px dashed var(--primary-light);
+}
+
+h3 {
+  margin: 0;
+}
+
+a {
+  color: var(--click);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.group {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
