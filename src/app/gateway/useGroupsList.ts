@@ -1,7 +1,7 @@
 import { Store } from "../entity/store/store";
+import { Status } from "../entity/group/group.interfaces";
 import { FetchAdapter } from "../adapter/fetch";
 import { LocalStorageAdapter } from "../adapter/local-storage";
-import { Status } from "../entity/group/group.interfaces";
 
 type MonitorsStateCount = { [key in Status]: number };
 
@@ -17,7 +17,7 @@ export class useGroupsList extends Store {
       storeName: "groupsList",
       endpoint: "ENDPOINT",
       ttlInSeconds: 30,
-      fetch: new FetchAdapter("ENDPOINT"),
+      fetch: new FetchAdapter(process.env.DOMAIN, "/groups"),
       local: new LocalStorageAdapter("groupsList"),
       cacheManager: new LocalStorageAdapter("cacheManager"),
     });

@@ -1,11 +1,21 @@
 {
   "compilerOptions": {
     "target": "es2020",
+    "outDir": "_site/app/",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*"],
+  "watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriority",
+    "synchronousWatchDirectory": true,
+    "excludeDirectories": ["**/node_modules", "_build"],
+    "excludeFiles": ["_site/**/*"]
+  },
+  "include": ["src/app/**/*"],
   "exclude": ["**/*.test.ts"]
 }
