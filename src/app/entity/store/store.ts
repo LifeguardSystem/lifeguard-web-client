@@ -1,4 +1,4 @@
-import * as Interface from "./store.interfaces";
+import * as Interface from "./store.interfaces.js";
 
 export class Store {
   #local: Interface.LocalAdapter;

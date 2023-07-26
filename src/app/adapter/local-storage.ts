@@ -1,4 +1,4 @@
-import { LocalAdapter } from "../entity/store/store.interfaces";
+import { LocalAdapter } from "../entity/store/store.interfaces.js";
 
 export class LocalStorageAdapter implements LocalAdapter {
   storageName: string;

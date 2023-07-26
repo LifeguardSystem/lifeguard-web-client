@@ -1,4 +1,4 @@
-import { useGroupsList } from "../gateway/useGroupsList";
+import { useGroupsList } from "../gateway/useGroupsList.js";
 
 const hidrateMenu = async () => {
   try {
@@ -8,7 +8,5 @@ const hidrateMenu = async () => {
     console.error("Error fetching groups list: ", error);
   }
 };
-
-console.log(process.env.DOMAIN);
 
 hidrateMenu();

@@ -1,4 +1,4 @@
-import { Monitor, Status } from "./group.interfaces";
+import { Monitor, Status } from "./group.interfaces.js";
 
 export class Group {
   name: string;

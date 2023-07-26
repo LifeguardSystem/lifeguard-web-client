@@ -1,11 +1,12 @@
-import { Store } from "../entity/store/store";
-import { Status } from "../entity/group/group.interfaces";
-import { FetchAdapter } from "../adapter/fetch";
-import { LocalStorageAdapter } from "../adapter/local-storage";
+import { Store } from "../entity/store/store.js";
+import { Status } from "../entity/group/group.interfaces.js";
+import { FetchAdapter } from "../adapter/fetch.js";
+import { LocalStorageAdapter } from "../adapter/local-storage.js";
+import { domain } from "../GLOBAL/global.js";
 
 type MonitorsStateCount = { [key in Status]: number };
 
-type GroupsListResponse = {
+export type GroupsListResponse = {
   groupName: string;
   groupID: string;
   monitorsStateCount: MonitorsStateCount;
@@ -17,7 +18,7 @@ export class useGroupsList extends Store {
       storeName: "groupsList",
       endpoint: "ENDPOINT",
       ttlInSeconds: 30,
-      fetch: new FetchAdapter(process.env.DOMAIN, "/groups"),
+      fetch: new FetchAdapter(domain, "/groups"),
       local: new LocalStorageAdapter("groupsList"),
       cacheManager: new LocalStorageAdapter("cacheManager"),
     });
