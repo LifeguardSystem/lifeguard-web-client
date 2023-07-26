@@ -1,6 +1,6 @@
 import { LocalAdapter } from "../entity/store/store.interfaces";
 
-export class localStorageAdapter implements LocalAdapter {
+export class LocalStorageAdapter implements LocalAdapter {
   storageName: string;
   rawData: string;
   storage = window.localStorage;

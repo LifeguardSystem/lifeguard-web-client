@@ -15,20 +15,21 @@ export class Store {
     endpoint: string;
     params?: { [key: string]: string };
     ttlInSeconds?: number;
-    fetch: Interface.ExternalConstructor & Interface.ExternalAdapter;
-    local: Interface.LocalConstructor & Interface.LocalAdapter;
+    fetch: Interface.ExternalAdapter;
+    local: Interface.LocalAdapter;
+    cacheManager: Interface.LocalAdapter;
   }) {
     this.storeName = parameters.storeName;
     this.params = parameters.params;
     this.endpoint = parameters.endpoint;
     this.ttlInSeconds = parameters.ttlInSeconds || 86400; //24 hours
 
-    this.#local = new parameters.local(this.storeName);
-    this.#cacheManager = new parameters.local("cacheManager");
-    this.#online = new parameters.fetch(this.endpoint);
+    this.#local = parameters.local;
+    this.#cacheManager = parameters.cacheManager;
+    this.#online = parameters.fetch;
   }
 
-  async getData(onlyFromLocal = false) {
+  async getData(onlyFromLocal = false): Promise<unknown> {
     const localData = this.#getLocalData();
     if (onlyFromLocal) {
       return localData;

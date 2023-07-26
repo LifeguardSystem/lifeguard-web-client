@@ -1,13 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
-module.exports = {
-  entry: path.join(__dirname, "/src/app/presenter/"),
-  output: {
-    path: path.join(__dirname, "/app-vanilla-js"),
-    filename: "[name].js",
-    libraryTarget: "umd",
-  },
+const configBase = {
   cache: true,
   target: "node",
   externals: fs.readdirSync("node_modules"),
@@ -27,3 +21,33 @@ module.exports = {
     ],
   },
 };
+
+const home = {
+  entry: path.join(__dirname, "/src/app/presenter/home.ts"),
+  output: {
+    path: path.join(__dirname, "/app-vanilla-js"),
+    filename: "home.js",
+  },
+};
+
+const group = {
+  entry: path.join(__dirname, "/src/app/presenter/group.ts"),
+  output: {
+    path: path.join(__dirname, "/app-vanilla-js"),
+    filename: "group.js",
+  },
+};
+
+const global = {
+  entry: path.join(__dirname, "/src/app/presenter/global.ts"),
+  output: {
+    path: path.join(__dirname, "/app-vanilla-js"),
+    filename: "global.js",
+  },
+};
+
+module.exports = [
+  { ...home, ...configBase },
+  { ...group, ...configBase },
+  { ...global, ...configBase },
+];
