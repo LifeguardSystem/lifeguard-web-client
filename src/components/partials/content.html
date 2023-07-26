@@ -50,7 +50,8 @@
   {% include 'atom/card/card.html' %}
   {% include 'atom/flex/flex.html' %}
   {% include 'atom/list-holder/list-holder.html' %}
-  {% include 'atom/logo/logo.html' %} 
+  {% include 'atom/logo/logo.html' %}
+  {% include 'atom/skeleton/skeleton.html' %}
   {% include 'atom/title/title.html' %} 
 
   {% include 'molecule/chart-bar-horizontal/chart-bar-horizontal.html' %}
@@ -66,9 +67,16 @@
   {% include 'organism/cardList/cardList.html' %}
 
   <body>
-    <custom-top-nav> </custom-top-nav>
+    <custom-top-nav></custom-top-nav>
     <main>
-      <custom-left-menu> </custom-left-menu>
+      <custom-left-menu>
+        <custom-menu-item>
+          Todos os projetos
+          <span data-item="menuItem" data-for="all" slot="monitoring">-</span>
+          <span data-item="menuItem" data-for="all" slot="warnings">-</span>
+          <span data-item="menuItem" data-for="all" slot="problems">-</span>
+        </custom-menu-item>
+      </custom-left-menu>
       <article>
         {% block content %}{% endblock %}
       </article>

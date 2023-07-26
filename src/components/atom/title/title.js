@@ -5,6 +5,9 @@ class Title extends HTMLElement {
     this.attachShadow({ mode: "open" }).appendChild(
       this.template.cloneNode(true)
     );
+  }
+
+  connectedCallback() {
     this.type = this.getAttribute("type");
     this.setType();
     this.setIcon();
