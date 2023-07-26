@@ -1,6 +1,12 @@
 # Lifeguard Web Client
 
-## Dependencies
+## Index
+
+- Stack and Dependencies
+- Running the project locally
+- How to ship it
+
+## Stack and Dependencies
 
 The webclient uses `11ty` as its static site generator, `jest` form testing and `prettier` for enforcing a cohesive code formatting throughout the project.
 
