@@ -65,7 +65,7 @@ export class FetchAdapter implements ExternalAdapter {
     } catch (error) {
       this.#rawData = {};
       console.error(
-        `The error occured when fetching the path, .../${this.path}`
+        `The error occured when fetching the path, ...${this.path}`
       );
       throw new Error(error);
     }
