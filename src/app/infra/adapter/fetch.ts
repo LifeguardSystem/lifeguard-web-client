@@ -1,4 +1,4 @@
-import { ExternalAdapter } from "../entity/store/store.interfaces.js";
+import { ExternalAdapter } from "../../entity/store/store.interfaces.js";
 
 export class FetchAdapter implements ExternalAdapter {
   domain: string;

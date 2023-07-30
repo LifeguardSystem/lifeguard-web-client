@@ -1,4 +1,4 @@
-import { GroupsListResponse } from "../gateway/useGroupsList.js";
+import { GroupsListResponse } from "../infra/gateway/useGroupsList.js";
 import { inserTextToDOMElement } from "../util/insertTextToDOMElement.js";
 
 export const hydrateMainMenu = async (params: {

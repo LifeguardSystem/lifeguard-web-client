@@ -22,4 +22,19 @@ export const mockHandlers = {
       },
     ],
   },
+  "/groups/?name=JBP": {
+    status: 200,
+    body: {
+      groupName: "Joint Business Plan",
+      groupID: "JBP",
+      monitors: [
+        {
+          id: "",
+          status: "normal",
+          description: "",
+          actions: [],
+        },
+      ],
+    },
+  },
 };

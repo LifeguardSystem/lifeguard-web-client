@@ -1,4 +1,4 @@
-import { useGroupsList } from "../gateway/useGroupsList.js";
+import { useGroupsList } from "../infra/gateway/useGroupsList.js";
 import { timeToUpdateDOMInMS } from "../global/global.js";
 import { countMonitorings } from "../use-case/count-monitorings.js";
 import { countProjectsWithProblemsOrWarnings } from "../use-case/count-projects-with-problems-or-warnings.js";

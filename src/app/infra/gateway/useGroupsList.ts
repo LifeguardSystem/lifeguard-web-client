@@ -1,8 +1,8 @@
-import { Store } from "../entity/store/store.js";
-import { Status } from "../entity/group/group.interfaces.js";
+import { Store } from "../../entity/store/store.js";
+import { Status } from "../../entity/group/group.interfaces.js";
 import { FetchAdapter } from "../adapter/fetch.js";
 import { LocalStorageAdapter } from "../adapter/local-storage.js";
-import { domain } from "../global/global.js";
+import { domain } from "../../global/global.js";
 
 export type MonitorsStateCount = { [key in Status]: number };
 

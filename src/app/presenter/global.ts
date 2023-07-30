@@ -1,4 +1,4 @@
-import { useGroupsList } from "../gateway/useGroupsList.js";
+import { useGroupsList } from "../infra/gateway/useGroupsList.js";
 import { timeToUpdateDOMInMS } from "../global/global.js";
 import { hydrateMainMenu } from "../use-case/hydrate-main-menu.js";
 
