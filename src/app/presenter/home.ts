@@ -2,7 +2,7 @@ import { useGroupsList } from "../gateway/useGroupsList.js";
 import { timeToUpdateDOMInMS } from "../global/global.js";
 import { countMonitorings } from "../use-case/count-monitorings.js";
 import { countProjectsWithProblemsOrWarnings } from "../use-case/count-projects-with-problems-or-warnings.js";
-import { inserTextToDOMElement } from "../use-case/insertTextToDOMElement.js";
+import { inserTextToDOMElement } from "../util/insertTextToDOMElement.js";
 import { toPercentage } from "../util/to-percentage.js";
 
 const presentHomeData = async () => {

@@ -43,10 +43,22 @@ class MenuItem extends HTMLElement {
   }
 
   setStyleAsSelectedPage() {
+    const hasParams = (path) => path.includes("?");
+
     const listItem = this.shadowRoot.querySelector("li");
     const queryParams = window.location.search;
 
-    listItem.className = this.path.includes(queryParams) && "selected";
+    const noneHasParams = !hasParams(queryParams) && !hasParams(this.path);
+    const bothHaveParams = hasParams(queryParams) && hasParams(this.path);
+
+    if (noneHasParams) {
+      return (listItem.className = "selected");
+    }
+
+    if (bothHaveParams) {
+      return (listItem.className =
+        this.path.includes(queryParams) && "selected");
+    }
   }
 
   setIndicators() {
