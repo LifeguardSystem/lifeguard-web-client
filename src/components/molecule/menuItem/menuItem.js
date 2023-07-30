@@ -39,14 +39,14 @@ class MenuItem extends HTMLElement {
 
   setAnchorLink() {
     const anchor = this.shadowRoot.querySelector("a");
-    console.log(anchor);
     anchor.href = this.path;
   }
 
   setStyleAsSelectedPage() {
     const listItem = this.shadowRoot.querySelector("li");
-    const pagePath = window.location.pathname;
-    listItem.className = pagePath === this.path && "selected";
+    const queryParams = window.location.search;
+
+    listItem.className = this.path.includes(queryParams) && "selected";
   }
 
   setIndicators() {
