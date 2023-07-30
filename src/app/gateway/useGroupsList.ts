@@ -4,7 +4,7 @@ import { FetchAdapter } from "../adapter/fetch.js";
 import { LocalStorageAdapter } from "../adapter/local-storage.js";
 import { domain } from "../global/global.js";
 
-type MonitorsStateCount = { [key in Status]: number };
+export type MonitorsStateCount = { [key in Status]: number };
 
 export type GroupsListResponse = {
   groupName: string;
