@@ -6,20 +6,57 @@ class MenuItem extends HTMLElement {
       this.template.cloneNode(true)
     );
 
-    this.path = this.getAttribute("href") || "/";
+    // Props
+    this.path = "/";
+    this.monitoring = "0";
+    this.warnings = "0";
+    this.problems = "0";
+  }
+
+  connectedCallback() {
+    this.getAttributes();
+
     this.setAnchorLink();
-    this.setSelected();
+    this.setIndicators();
+    this.setStyleAsSelectedPage();
+  }
+
+  static get observedAttributes() {
+    return ["monitoring", "warnings", "problems"];
+  }
+
+  attributeChangedCallback() {
+    this.getAttributes();
+    this.setIndicators();
+  }
+
+  getAttributes() {
+    this.path = this.getAttribute("href") || "/";
+    this.monitoring = this.getAttribute("monitoring");
+    this.warnings = this.getAttribute("warnings");
+    this.problems = this.getAttribute("problems");
   }
 
   setAnchorLink() {
     const anchor = this.shadowRoot.querySelector("a");
+    console.log(anchor);
     anchor.href = this.path;
   }
 
-  setSelected() {
+  setStyleAsSelectedPage() {
     const listItem = this.shadowRoot.querySelector("li");
     const pagePath = window.location.pathname;
     listItem.className = pagePath === this.path && "selected";
+  }
+
+  setIndicators() {
+    const monitoring = this.shadowRoot.getElementById("monitoring");
+    const warnings = this.shadowRoot.getElementById("warnings");
+    const problems = this.shadowRoot.getElementById("problems");
+
+    monitoring.innerText = this.monitoring;
+    warnings.innerText = this.warnings;
+    problems.innerText = this.problems;
   }
 }
 

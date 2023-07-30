@@ -53,18 +53,14 @@
 
   <!-- Components -->
   {% include 'partials/components.html' %}
-  
+
   <body>
     <script src="/app/presenter/global.js" type="module"></script>
     <custom-top-nav></custom-top-nav>
     <main>
-      <custom-left-menu>
-        <custom-menu-item>
-          Todos os projetos
-          <span data-item="menuItem" data-for="all" slot="monitoring">-</span>
-          <span data-item="menuItem" data-for="all" slot="warnings">-</span>
-          <span data-item="menuItem" data-for="all" slot="problems">-</span>
-        </custom-menu-item>
+      <custom-left-menu id="leftMenu">
+        <custom-skeleton height="5.5"></custom-skeleton>
+        <custom-skeleton height="5.5"></custom-skeleton>
       </custom-left-menu>
       <article>{% block content %}{% endblock %}</article>
     </main>

@@ -25,7 +25,7 @@ export class FetchAdapter implements ExternalAdapter {
   }
 
   async asObject() {
-    return this.#rawData?.response;
+    return this.#rawData;
   }
 
   asString() {
@@ -61,7 +61,8 @@ export class FetchAdapter implements ExternalAdapter {
         });
       }
 
-      this.#rawData = await response.json();
+      const responseAsObject = await response.json();
+      this.#rawData = responseAsObject;
     } catch (error) {
       this.#rawData = {};
       console.error(
