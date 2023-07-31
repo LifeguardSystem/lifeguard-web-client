@@ -10,7 +10,7 @@ export class Group {
   }
 
   setMonitor(monitor: Monitor) {
-    const ids = this.#getMonitorsIDs();
+    const ids = this.#findMonitorsIDs();
 
     const isAlreadySaved = ids.includes(monitor.id);
 
@@ -28,7 +28,7 @@ export class Group {
   }
 
   getMonitorsByStatus = (status: Status) =>
-    this.#monitors?.find((monitor) => monitor.status === status);
+    this.#monitors?.filter((monitor) => monitor.status === status);
 
-  #getMonitorsIDs = () => this.#monitors?.map((monitor) => monitor.id);
+  #findMonitorsIDs = () => this.#monitors?.map((monitor) => monitor.id);
 }

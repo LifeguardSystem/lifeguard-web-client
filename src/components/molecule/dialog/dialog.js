@@ -7,9 +7,12 @@ class Dialog extends HTMLElement {
     this.btnEl = this.shadowRoot.getElementById("btn");
     this.dialogEl = this.shadowRoot.getElementById("dialog");
     this.contentEl = this.shadowRoot.getElementById("content");
+
+    this.btnText = "Abrir";
   }
 
   connectedCallback() {
+    this.btnText = this.getAttribute("btnText") || "Abrir";
     this.setEvents();
     this.setBtnText();
   }
@@ -23,7 +26,7 @@ class Dialog extends HTMLElement {
   }
 
   setBtnText() {
-    this.btnEl.innerText = this.btn;
+    this.btnEl.innerText = this.btnText;
   }
 }
 

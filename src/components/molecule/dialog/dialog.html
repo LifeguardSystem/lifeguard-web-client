@@ -2,7 +2,9 @@
   <style>
     {% include 'molecule/dialog/dialog.css' %}
   </style>
-  <button id="btn"><slot name="btn"></slot></button>
+  <button id="btn">
+    <slot name="btn">Abrir</slot>
+  </button>
   <dialog id="dialog">
     <custom-card id="content" type="secondary">
       <h1>Definições do monitoramento</h1>

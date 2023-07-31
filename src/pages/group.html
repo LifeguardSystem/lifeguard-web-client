@@ -7,11 +7,7 @@ permalink: "/group/"
 
 <custom-card>
   <custom-title type="problems">Problemas</custom-title>
-  <custom-card-list
-    data-item="categoryItem"
-    data-for="{{group}}"
-    type="problems"
-  >
+  <custom-card-list type="problems" id="cardProblems">
     <custom-skeleton height="7"></custom-skeleton>
     <custom-skeleton height="7"></custom-skeleton>
   </custom-card-list>
@@ -19,11 +15,7 @@ permalink: "/group/"
 
 <custom-card>
   <custom-title type="warnings">Avisos</custom-title>
-  <custom-card-list
-    data-item="categoryItem"
-    data-for="{{group}}"
-    type="warnings"
-  >
+  <custom-card-list type="warnings" id="cardWarnings">
     <custom-skeleton height="7"></custom-skeleton>
     <custom-skeleton height="7"></custom-skeleton>
   </custom-card-list>
@@ -31,7 +23,7 @@ permalink: "/group/"
 
 <custom-card>
   <custom-title type="normal">Normal</custom-title>
-  <custom-card-list data-item="categoryItem" data-for="{{group}}" type="normal">
+  <custom-card-list type="normal" id="cardNormal">
     <custom-skeleton height="7"></custom-skeleton>
     <custom-skeleton height="7"></custom-skeleton>
   </custom-card-list>
