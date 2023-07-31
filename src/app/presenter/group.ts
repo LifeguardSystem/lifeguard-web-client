@@ -2,6 +2,7 @@ import { Status } from "../entity/group/group.interfaces.js";
 import { Group } from "../entity/group/group.js";
 import { timeToUpdateDOMInMS } from "../global/global.js";
 import { useGroupSingle } from "../infra/gateway/useGroupSingle.js";
+import { createMonitorVisualization } from "../use-case/create-monitor-visualization.js";
 import { getDataFromSearchParam } from "../use-case/get-data-from-search-param.js";
 import { hydrateGroupCardInfo } from "../use-case/hydrate-group-card-info.js";
 
@@ -37,6 +38,7 @@ const presentGroupData = async () => {
       hydrateGroupCardInfo({
         targetDOMElement: executor[execute].domElement,
         monitors: executor[execute].monitors,
+        monitorVisualizationCreator: createMonitorVisualization,
       });
     });
   } catch (error) {
