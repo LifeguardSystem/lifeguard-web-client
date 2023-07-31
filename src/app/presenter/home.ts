@@ -14,29 +14,29 @@ const presentHomeData = async () => {
     const projectsWithProblemsAndWarnigns = toPercentage(
       groupsList.length,
       countProjectsWithProblemsOrWarnings(groupsList)
-    );
+    ).formatted;
     inserTextToDOMElement({
       domElement: elementProjects,
-      value: `${projectsWithProblemsAndWarnigns}`,
+      value: projectsWithProblemsAndWarnigns,
     });
 
     const elementMonitorProblems = document.getElementById(
       "summaryItemProblems"
     );
     const { withProblems, withWarnings, total } = countMonitorings(groupsList);
-    const monitorsWithProblems = toPercentage(total, withProblems);
+    const monitorsWithProblems = toPercentage(total, withProblems).formatted;
     inserTextToDOMElement({
       domElement: elementMonitorProblems,
-      value: `${monitorsWithProblems}`,
+      value: monitorsWithProblems,
     });
 
     const elementMonitorWarnings = document.getElementById(
       "summaryItemWarnings"
     );
-    const monitorsWithWarnings = toPercentage(total, withWarnings);
+    const monitorsWithWarnings = toPercentage(total, withWarnings).formatted;
     inserTextToDOMElement({
       domElement: elementMonitorWarnings,
-      value: `${monitorsWithWarnings}`,
+      value: monitorsWithWarnings,
     });
   } catch (error) {
     console.error("Error fetching groups list: ", error);
