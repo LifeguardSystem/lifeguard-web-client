@@ -9,7 +9,7 @@
     "start": "npm-run-all pages -p watch:*",
     "pages": "tsc",
     "watch:pages": "tsc --watch",
-    "watch:11ty": "npx @11ty/eleventy --watch --serve",
+    "watch:11ty": "npx @11ty/eleventy --config=eleventy.config.local.cjs --serve",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "author": "",
