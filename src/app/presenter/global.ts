@@ -1,4 +1,4 @@
-import { useGroupsList } from "../infra/gateway/useGroupsList.js";
+import { useGroupsListSummary } from "../infra/gateway/useGroupsListSummary.js";
 import { timeToUpdateDOMInMS } from "../global/global.js";
 import { hydrateMainMenu } from "../use-case/hydrate-main-menu.js";
 
@@ -6,7 +6,7 @@ const presentGlobalData = async () => {
   const leftMenu = document.getElementById("leftMenu");
 
   try {
-    const groupsListGetter = new useGroupsList();
+    const groupsListGetter = new useGroupsListSummary();
     const groupsList = await groupsListGetter.getData();
 
     hydrateMainMenu({ menuDomReference: leftMenu, groupsList });

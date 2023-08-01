@@ -1,4 +1,4 @@
-import { GroupsListResponse } from "../infra/gateway/useGroupsList";
+import { GroupsListResponse } from "../infra/gateway/useGroupsListSummary";
 
 export const countProjectsWithProblemsOrWarnings = (
   groupsList: GroupsListResponse

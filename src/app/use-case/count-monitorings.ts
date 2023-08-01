@@ -1,4 +1,4 @@
-import { GroupsListResponse } from "../infra/gateway/useGroupsList";
+import { GroupsListResponse } from "../infra/gateway/useGroupsListSummary";
 
 export const countMonitorings = (groupsList: GroupsListResponse) => {
   const total = groupsList.reduce((acc, group) => {

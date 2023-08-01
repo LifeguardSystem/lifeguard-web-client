@@ -1,4 +1,4 @@
-import * as Gateway from "../infra/gateway/useGroupsList.js";
+import * as Gateway from "../infra/gateway/useGroupsListSummary.js";
 import { timeToUpdateDOMInMS } from "../global/global.js";
 import { countMonitorings } from "../use-case/count-monitorings.js";
 import { countProjectsWithProblemsOrWarnings } from "../use-case/count-projects-with-problems-or-warnings.js";
@@ -110,7 +110,7 @@ const presentGroupsList = async (groupsIdList: string[]) => {
 
 const presentHomeData = async () => {
   try {
-    const groupsListGetter = new Gateway.useGroupsList();
+    const groupsListGetter = new Gateway.useGroupsListSummary();
     const groupsList = await groupsListGetter.getData();
 
     const groupsIDList = groupsList.map((group) => group.groupID);

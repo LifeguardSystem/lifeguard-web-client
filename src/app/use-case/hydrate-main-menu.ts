@@ -1,4 +1,4 @@
-import { GroupsListResponse } from "../infra/gateway/useGroupsList.js";
+import { GroupsListResponse } from "../infra/gateway/useGroupsListSummary.js";
 import { getElement } from "../util/domElements.js";
 import { inserTextToDOMElement } from "../util/insertTextToDOMElement.js";
 

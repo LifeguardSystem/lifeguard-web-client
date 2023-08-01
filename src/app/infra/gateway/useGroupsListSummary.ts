@@ -12,13 +12,13 @@ export type GroupsListResponse = {
   monitorsStateCount: MonitorsStateCount;
 }[];
 
-export class useGroupsList extends Store {
+export class useGroupsListSummary extends Store {
   constructor() {
     super({
       storeName: "groupsList",
       endpoint: "ENDPOINT",
       ttlInSeconds: 30,
-      fetch: new FetchAdapter(domain, "/groups"),
+      fetch: new FetchAdapter(domain, "/groups/summary"),
       local: new LocalStorageAdapter("groupsList"),
       cacheManager: new LocalStorageAdapter("cacheManager"),
     });

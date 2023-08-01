@@ -1,4 +1,4 @@
-export const groups = {
+export const groupsSummary = {
   status: 200,
   body: [
     {
