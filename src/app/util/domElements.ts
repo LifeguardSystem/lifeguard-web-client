@@ -8,7 +8,8 @@ type Elements =
   | "responsiveList"
   | "chartBar"
   | "menuItem"
-  | "detailsCard";
+  | "detailsCard"
+  | "anchorAsButton";
 
 const elementsDOMComponent = {
   li: document.createElement("li"),
@@ -21,6 +22,7 @@ const elementsDOMComponent = {
   chartBar: document.createElement("custom-chart-bar-horizontal"),
   menuItem: document.createElement("custom-menu-item"),
   detailsCard: document.createElement("custom-details-card"),
+  anchorAsButton: document.createElement("custom-button-anchor"),
 };
 
 export const getElement = (elementName: Elements) =>

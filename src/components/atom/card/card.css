@@ -1,5 +1,11 @@
+:host {
+  display: block;
+  max-width: 100%;
+}
+
 section {
   padding: 1rem;
+  padding-top: 0.25rem;
   background: var(--select-background);
   border-radius: 1rem;
   box-shadow: var(--shadow);

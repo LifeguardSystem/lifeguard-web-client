@@ -14,18 +14,21 @@ class ChartBarHorizontal extends HTMLElement {
 
     this.bar = this.shadowRoot.getElementById("bar");
     this.badge = this.shadowRoot.getElementById("value");
+    this.barTitle = this.shadowRoot.getElementById("title");
   }
 
   static get observedAttributes() {
-    return ["value", "percentage"];
+    return ["value", "percentage", "title"];
   }
 
   attributeChangedCallback() {
     this.value = this.getAttribute("value");
     this.percentage = this.getAttribute("percentage");
+    this.titleContent = this.getAttribute("title");
 
     this.bar.style.setProperty("--percent", `${this.percentage}%`);
     this.badge.innerText = this.value;
+    this.barTitle.innerText = this.titleContent;
   }
 }
 

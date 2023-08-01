@@ -1,3 +1,8 @@
+:host {
+  display: flex;
+  max-width: 100%;
+}
+
 a {
   display: inline-block;
   text-decoration: none;
@@ -10,6 +15,7 @@ a {
   cursor: pointer;
   transition: 0.3s;
   margin: 0.5rem 0;
+  text-align: center;
 }
 
 a:hover {

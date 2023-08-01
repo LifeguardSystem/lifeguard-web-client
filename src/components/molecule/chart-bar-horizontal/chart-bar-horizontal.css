@@ -1,16 +1,29 @@
+:host {
+  display: flex;
+  max-width: 100%;
+}
+
 .container {
   display: flex;
   padding: 0.5rem 0;
   align-items: center;
   gap: 0.5rem;
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .container > * {
-  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .bar-container {
-  display: flex;
   justify-content: flex-end;
 }
 
@@ -21,8 +34,14 @@
   border-radius: 0.5rem 0 0 0.5rem;
 }
 
-.content {
+.content span {
   font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: calc(100vw - 12rem);
+  min-width: 0;
 }
 
 .value {
@@ -30,4 +49,10 @@
   padding: 0.25rem;
   border-radius: 1rem;
   margin-left: 0.5rem;
+}
+
+@media (max-width: 1000px) {
+  .content {
+    flex: 2;
+  }
 }

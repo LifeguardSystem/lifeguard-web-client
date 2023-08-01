@@ -3,7 +3,14 @@ import { getElement } from "../util/domElements.js";
 import { toPercentage } from "../util/to-percentage.js";
 
 export class AddOn {
-  action = (action: MonitoringMessage[]) => [getElement("span")];
+  action = (action: MonitoringMessage[]) =>
+    action.map((item) => {
+      const btn = getElement("anchorAsButton");
+      btn.innerText = item.description;
+      btn.setAttribute("href", item.linkTo);
+
+      return btn;
+    });
 
   generic = (generic: MonitoringMessage[]) =>
     generic.map((item) => {
@@ -25,10 +32,7 @@ export class AddOn {
         const percentage = toPercentage(biggestQueueVolume, item.value).raw;
         bar.setAttribute("percentage", String(percentage));
 
-        const itemContent = getElement("span");
-        itemContent.innerText = item.description;
-
-        bar.append(itemContent);
+        bar.setAttribute("title", item.description);
 
         return bar;
       });

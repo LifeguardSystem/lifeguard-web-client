@@ -1,5 +1,8 @@
 h2 {
-  margin-bottom: 2rem;
+  position: sticky;
+  top: 4rem;
+  background: var(--select-background);
+  padding: 0.5rem 0;
   display: flex;
   gap: 0.25rem;
   align-items: center;
