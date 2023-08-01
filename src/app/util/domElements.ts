@@ -7,7 +7,8 @@ type Elements =
   | "dialog"
   | "responsiveList"
   | "chartBar"
-  | "menuItem";
+  | "menuItem"
+  | "detailsCard";
 
 const elementsDOMComponent = {
   li: document.createElement("li"),
@@ -19,6 +20,7 @@ const elementsDOMComponent = {
   responsiveList: document.createElement("custom-list-holder"),
   chartBar: document.createElement("custom-chart-bar-horizontal"),
   menuItem: document.createElement("custom-menu-item"),
+  detailsCard: document.createElement("custom-details-card"),
 };
 
 export const getElement = (elementName: Elements) =>

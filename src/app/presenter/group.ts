@@ -5,6 +5,7 @@ import { useGroupSingle } from "../infra/gateway/useGroupSingle.js";
 import { AddOn } from "../use-case/create-add-ons.js";
 import { createMonitorVisualization } from "../use-case/create-monitor-visualization.js";
 import { getDataFromSearchParam } from "../use-case/get-data-from-search-param.js";
+import { hydrateMonitorCard } from "../use-case/hydrate-monitor-card.js";
 
 const presentGroupData = async () => {
   const url = location.href;
@@ -35,24 +36,24 @@ const presentGroupData = async () => {
 
     const executorKeys = Object.keys(executor) as Status[];
     executorKeys.forEach((execute) => {
-      executor[execute].domElement.innerHTML = "";
-
       const isEmpty = !executor[execute].monitors.length;
-      if (isEmpty) {
-        const emptyStateElement = document.createElement("custom-empty-state");
-        return executor[execute].domElement.append(emptyStateElement);
-      }
-
-      const detailCard = document.createElement("custom-details-card");
 
       const addOnContentCreator = new AddOn();
-
       const monitorElementList = executor[execute].monitors.map((monitor) =>
         createMonitorVisualization(monitor, addOnContentCreator)
       );
 
-      detailCard.append(...monitorElementList);
-      executor[execute].domElement.append(detailCard);
+      const monitorsByGroupsList = [
+        {
+          monitorList: monitorElementList,
+        },
+      ];
+
+      hydrateMonitorCard(
+        executor[execute].domElement,
+        isEmpty,
+        monitorsByGroupsList
+      );
     });
   } catch (error) {
     console.error("Error fetching group single: ", error);
