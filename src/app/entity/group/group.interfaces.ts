@@ -10,7 +10,7 @@ export type Action = {
   linkTo?: string;
 };
 
-export type Monitoring = "gauge" | "queue" | "generic";
+export type Monitoring = "queue" | "generic";
 
 export type Monitor = {
   id: string;

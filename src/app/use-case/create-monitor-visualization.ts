@@ -2,11 +2,13 @@ import { Monitor, MonitoringMessage } from "../entity/group/group.interfaces";
 
 const elements = {
   li: document.createElement("li"),
-  flex: document.createElement("custom-flex"),
   h4: document.createElement("h4"),
-  dialog: document.createElement("custom-dialog"),
   paragraph: document.createElement("p"),
+  span: document.createElement("span"),
+  flex: document.createElement("custom-flex"),
+  dialog: document.createElement("custom-dialog"),
   responsiveList: document.createElement("custom-list-holder"),
+  chartBar: document.createElement("custom-chart-bar-horizontal"),
 };
 
 const createDialogAndItsButtons = (dialogTextContent: string) => {
@@ -49,6 +51,28 @@ const createAddOnForGenericList = (generic: MonitoringMessage[]) => {
   return list;
 };
 
+const createAddOnForQueue = (queue: MonitoringMessage[]) => {
+  const { responsiveList, chartBar, span } = elements;
+
+  const list = responsiveList.cloneNode(true) as HTMLElement;
+
+  const items = queue.map((item) => {
+    const bar = chartBar.cloneNode(true) as HTMLElement;
+    bar.setAttribute("value", String(item?.value));
+    bar.setAttribute("percentage", String(0));
+
+    const itemContent = span.cloneNode(true) as HTMLSpanElement;
+    itemContent.innerText = item.description;
+
+    bar.append(itemContent);
+
+    return bar;
+  });
+
+  list.append(...items);
+  return list;
+};
+
 export const createMonitorVisualization = (monitor: Monitor) => {
   const { description, name } = monitor;
   const { li, flex } = elements;
@@ -65,6 +89,11 @@ export const createMonitorVisualization = (monitor: Monitor) => {
   if (monitor?.generic?.length) {
     const generic = createAddOnForGenericList(monitor.generic);
     listElement.append(generic);
+  }
+
+  if (monitor?.queue?.length) {
+    const queue = createAddOnForQueue(monitor.queue);
+    listElement.append(queue);
   }
 
   return listElement;
