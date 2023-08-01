@@ -10,20 +10,22 @@ export const jbp = {
         status: "normal",
         description:
           "As filas de processamento do JBP são parte fundamental do sistema, elas são responsáveis para gerar os valores apresentados em tela e também processar os arquivos. Por isso é de extrema importancia as elas estejam funcionando corretamente. Essa validação fica monitorando as filas e se caso as filas não estejam com a vazão correta, uma alerta será disparado.",
-        queue: [
-          {
-            description: "jbp:consolidation_spreadsheet_entries_queue",
-            value: 10849,
-          },
-          {
-            description: "jbp:consolidation_entries_queue",
-            value: 300606,
-          },
-          {
-            description: "jbp:spreadsheets_queue",
-            value: 9,
-          },
-        ],
+        content: {
+          queue: [
+            {
+              description: "jbp:consolidation_spreadsheet_entries_queue",
+              value: 10849,
+            },
+            {
+              description: "jbp:consolidation_entries_queue",
+              value: 300606,
+            },
+            {
+              description: "jbp:spreadsheets_queue",
+              value: 9,
+            },
+          ],
+        },
       },
       {
         name: "Limite de erros excedidos",
@@ -38,7 +40,9 @@ export const jbp = {
         status: "warning",
         description:
           "A validação verifica de tempos em tempos o status de cada POD presente no namespace do JBP e alerta caso algum não esteja com o status de running.",
-        generic: [{ description: "Pod com problema: Nome da POD" }],
+        content: {
+          generic: [{ description: "Pod com problema: Nome da POD" }],
+        },
       },
     ],
   },

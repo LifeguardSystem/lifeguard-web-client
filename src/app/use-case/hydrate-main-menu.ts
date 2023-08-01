@@ -1,4 +1,5 @@
 import { GroupsListResponse } from "../infra/gateway/useGroupsList.js";
+import { getElement } from "../util/domElements.js";
 import { inserTextToDOMElement } from "../util/insertTextToDOMElement.js";
 
 export const hydrateMainMenu = async (params: {
@@ -27,7 +28,7 @@ export const hydrateMainMenu = async (params: {
 
   menuDomReference.innerHTML = "";
   menuItemsData.map((menuItem) => {
-    const menuItemComponent = document.createElement("custom-menu-item");
+    const menuItemComponent = getElement("menuItem");
 
     const { groupName, groupID, monitorsStateCount } = menuItem;
     inserTextToDOMElement({ domElement: menuItemComponent, value: groupName });

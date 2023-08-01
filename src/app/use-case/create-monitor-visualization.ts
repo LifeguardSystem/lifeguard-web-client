@@ -1,21 +1,9 @@
-import { Monitor, MonitoringMessage } from "../entity/group/group.interfaces";
-
-const elements = {
-  li: document.createElement("li"),
-  h4: document.createElement("h4"),
-  paragraph: document.createElement("p"),
-  span: document.createElement("span"),
-  flex: document.createElement("custom-flex"),
-  dialog: document.createElement("custom-dialog"),
-  responsiveList: document.createElement("custom-list-holder"),
-  chartBar: document.createElement("custom-chart-bar-horizontal"),
-};
+import * as Type from "../entity/group/group.interfaces.js";
+import { getElement } from "../util/domElements.js";
 
 const createDialogAndItsButtons = (dialogTextContent: string) => {
-  const { dialog, paragraph } = elements;
-
-  const dialogElement = dialog.cloneNode(true) as HTMLElement;
-  const dialogContent = paragraph.cloneNode(true) as HTMLParagraphElement;
+  const dialogElement = getElement("dialog");
+  const dialogContent = getElement("paragraph");
 
   dialogContent.innerText = dialogTextContent;
 
@@ -27,58 +15,32 @@ const createDialogAndItsButtons = (dialogTextContent: string) => {
 };
 
 const createTitle = (titleTextContent: string) => {
-  const { h4 } = elements;
-  const titleElement = h4.cloneNode(true) as HTMLTitleElement;
+  const titleElement = getElement("h4");
 
   titleElement.innerText = titleTextContent;
 
   return titleElement;
 };
 
-const createAddOnForGenericList = (generic: MonitoringMessage[]) => {
-  const { responsiveList, paragraph } = elements;
-
-  const list = responsiveList.cloneNode(true) as HTMLElement;
-
-  const items = generic.map((item) => {
-    const itemContent = paragraph.cloneNode(true) as HTMLParagraphElement;
-    itemContent.innerText = item.description;
-
-    return itemContent;
-  });
+const createAddOnWrapper = (items: HTMLElement[]) => {
+  const list = getElement("li");
 
   list.append(...items);
   return list;
 };
 
-const createAddOnForQueue = (queue: MonitoringMessage[]) => {
-  const { responsiveList, chartBar, span } = elements;
-
-  const list = responsiveList.cloneNode(true) as HTMLElement;
-
-  const items = queue.map((item) => {
-    const bar = chartBar.cloneNode(true) as HTMLElement;
-    bar.setAttribute("value", String(item?.value));
-    bar.setAttribute("percentage", String(0));
-
-    const itemContent = span.cloneNode(true) as HTMLSpanElement;
-    itemContent.innerText = item.description;
-
-    bar.append(itemContent);
-
-    return bar;
-  });
-
-  list.append(...items);
-  return list;
-};
-
-export const createMonitorVisualization = (monitor: Monitor) => {
+export const createMonitorVisualization = (
+  monitor: Type.Monitor,
+  addOnContentCreator: {
+    [key in Type.Monitoring]: (
+      content: Type.MonitoringMessage[]
+    ) => HTMLElement[];
+  }
+) => {
   const { description, name } = monitor;
-  const { li, flex } = elements;
 
-  const listElement = li.cloneNode(true) as HTMLLIElement;
-  const monitorComponent = flex.cloneNode(true) as HTMLElement;
+  const listElement = getElement("li");
+  const monitorComponent = getElement("flex");
 
   const dialog = createDialogAndItsButtons(description);
   const title = createTitle(name);
@@ -86,14 +48,17 @@ export const createMonitorVisualization = (monitor: Monitor) => {
   monitorComponent.append(title, dialog);
   listElement.append(monitorComponent);
 
-  if (monitor?.generic?.length) {
-    const generic = createAddOnForGenericList(monitor.generic);
-    listElement.append(generic);
-  }
+  const addOnsName = Object.keys(monitor?.content || {}) as Type.Monitoring[];
+  if (addOnsName?.length) {
+    addOnsName.forEach((addOn) => {
+      const content = monitor.content[addOn];
 
-  if (monitor?.queue?.length) {
-    const queue = createAddOnForQueue(monitor.queue);
-    listElement.append(queue);
+      const addOnWrapped = createAddOnWrapper(
+        addOnContentCreator[addOn](content)
+      );
+
+      listElement.append(addOnWrapped);
+    });
   }
 
   return listElement;
