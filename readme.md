@@ -4,6 +4,7 @@
 
 - Stack and Dependencies
 - Running the project locally
+- Testing the code
 - How to ship it
 
 ## Stack and Dependencies
