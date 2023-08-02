@@ -1,4 +1,4 @@
-import { region } from "../global/global.js";
+import { region } from "../GLOBAL/global.js";
 
 export const toPercentage = (total: number, part: number) => {
   const raw = (part / total) * 100;

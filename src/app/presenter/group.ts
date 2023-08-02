@@ -1,6 +1,6 @@
 import { Status } from "../entity/group/group.interfaces.js";
 import { Group } from "../entity/group/group.js";
-import { timeToUpdateDOMInMS } from "../global/global.js";
+import { timeToUpdateDOMInMS } from "../GLOBAL/global.js";
 import { useGroupSingle } from "../infra/gateway/useGroupSingle.js";
 import { AddOn } from "../use-case/create-add-ons.js";
 import { createMonitorVisualization } from "../use-case/create-monitor-visualization.js";

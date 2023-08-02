@@ -35,7 +35,7 @@ Note: Runing `npm start` will also populate the `_site` folder, but it will also
 
 ### Configuring the project to access your Lifeguard server
 
-Remenber! The global configuration file should be editted before deploying your client. You can find the global configuration file at `/src/app/global`, it is important to change at least the `domain` variable to point to your production Lifeguard server.
+Remenber! The global configuration file should be editted before deploying your client. You can find the global configuration file at `/src/app/GLOBAL`, it is important to change at least the `domain` variable to point to your production Lifeguard server.
 
 ### Shipping
 

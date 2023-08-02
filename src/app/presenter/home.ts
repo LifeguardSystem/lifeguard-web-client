@@ -1,5 +1,5 @@
 import * as Gateway from "../infra/gateway/useGroupsListSummary.js";
-import { timeToUpdateDOMInMS } from "../global/global.js";
+import { timeToUpdateDOMInMS } from "../GLOBAL/global.js";
 import { countMonitorings } from "../use-case/count-monitorings.js";
 import { inserTextToDOMElement } from "../util/insert-text-to-DOM-element.js";
 import { toPercentage } from "../util/to-percentage.js";

@@ -1,5 +1,5 @@
 import { useGroupsListSummary } from "../infra/gateway/useGroupsListSummary.js";
-import { timeToUpdateDOMInMS } from "../global/global.js";
+import { timeToUpdateDOMInMS } from "../GLOBAL/global.js";
 import { hydrateMainMenu } from "../use-case/hydrate-main-menu.js";
 
 const presentGlobalData = async () => {

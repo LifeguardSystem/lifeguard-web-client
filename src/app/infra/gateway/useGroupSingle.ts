@@ -2,7 +2,7 @@ import { Monitor } from "../../entity/group/group.interfaces.js";
 import { Store } from "../../entity/store/store.js";
 import { FetchAdapter } from "../adapter/fetch.js";
 import { LocalStorageAdapter } from "../adapter/local-storage.js";
-import { domain } from "../../global/global.js";
+import { domain } from "../../GLOBAL/global.js";
 
 export type SingleGroupsResponse = {
   groupName: string;
