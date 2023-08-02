@@ -1,4 +1,4 @@
-import { getElement } from "../util/domElements.js";
+import { getElement } from "../util/dom-elements.js";
 
 export const hydrateMonitorCard = (
   cardDOMElement: HTMLElement,

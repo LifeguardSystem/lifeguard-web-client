@@ -1,5 +1,5 @@
 import * as Type from "../entity/group/group.interfaces.js";
-import { getElement } from "../util/domElements.js";
+import { getElement } from "../util/dom-elements.js";
 
 const createDialogAndItsButtons = (dialogTextContent: string) => {
   const dialogElement = getElement("dialog");

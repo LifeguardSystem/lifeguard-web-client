@@ -1,23 +1,44 @@
-import { GroupsListResponse } from "../infra/gateway/useGroupsListSummary";
+import { MonitorsStateCount } from "../infra/gateway/useGroupsListSummary.js";
 
-export const countMonitorings = (groupsList: GroupsListResponse) => {
-  const total = groupsList.reduce((acc, group) => {
-    const { warning, problem, normal } = group.monitorsStateCount;
-
+export const countMonitorings = (
+  monitorsStateCountList: MonitorsStateCount[]
+) => {
+  const total = monitorsStateCountList.reduce((acc, monitorsStateCount) => {
+    const { warning, problem, normal } = monitorsStateCount;
     return acc + warning + problem + normal;
   }, 0);
 
-  const withProblems = groupsList.reduce((acc, group) => {
-    const { problem } = group.monitorsStateCount;
+  const withProblems = monitorsStateCountList.reduce(
+    (acc, monitorsStateCount) => {
+      const { problem } = monitorsStateCount;
 
-    return acc + problem;
-  }, 0);
+      return acc + problem;
+    },
+    0
+  );
 
-  const withWarnings = groupsList.reduce((acc, group) => {
-    const { warning } = group.monitorsStateCount;
+  const withWarnings = monitorsStateCountList.reduce(
+    (acc, monitorsStateCount) => {
+      const { warning } = monitorsStateCount;
 
-    return acc + warning;
-  }, 0);
+      return acc + warning;
+    },
+    0
+  );
 
-  return { withProblems, withWarnings, total };
+  const projectsWithProblemsAndWarnings = monitorsStateCountList.reduce(
+    (acc, monitorsStateCount) => {
+      const { problem, warning } = monitorsStateCount;
+
+      const hasProblems = problem >= 1;
+      const hasWarnings = warning >= 1;
+
+      if (hasWarnings || hasProblems) return acc + 1;
+
+      return acc;
+    },
+    0
+  );
+
+  return { withProblems, withWarnings, projectsWithProblemsAndWarnings, total };
 };

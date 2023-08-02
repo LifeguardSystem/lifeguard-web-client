@@ -4,8 +4,8 @@ import { timeToUpdateDOMInMS } from "../global/global.js";
 import { useGroupSingle } from "../infra/gateway/useGroupSingle.js";
 import { AddOn } from "../use-case/create-add-ons.js";
 import { createMonitorVisualization } from "../use-case/create-monitor-visualization.js";
-import { getDataFromSearchParam } from "../use-case/get-data-from-search-param.js";
 import { hydrateMonitorCard } from "../use-case/hydrate-monitor-card.js";
+import { getDataFromSearchParam } from "../util/get-data-from-search-param.js";
 
 const presentGroupData = async () => {
   const url = location.href;

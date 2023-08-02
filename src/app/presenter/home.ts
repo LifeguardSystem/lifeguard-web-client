@@ -1,8 +1,7 @@
 import * as Gateway from "../infra/gateway/useGroupsListSummary.js";
 import { timeToUpdateDOMInMS } from "../global/global.js";
 import { countMonitorings } from "../use-case/count-monitorings.js";
-import { countProjectsWithProblemsOrWarnings } from "../use-case/count-projects-with-problems-or-warnings.js";
-import { inserTextToDOMElement } from "../util/insertTextToDOMElement.js";
+import { inserTextToDOMElement } from "../util/insert-text-to-DOM-element.js";
 import { toPercentage } from "../util/to-percentage.js";
 import { useGroupSingle } from "../infra/gateway/useGroupSingle.js";
 import { Group } from "../entity/group/group.js";
@@ -12,10 +11,17 @@ import { Status } from "../entity/group/group.interfaces.js";
 import { hydrateMonitorCard } from "../use-case/hydrate-monitor-card.js";
 
 const presentDashBoard = (groupsList: Gateway.GroupsListResponse) => {
+  const monitorsStateCountList = groupsList.map(
+    (group) => group.monitorsStateCount
+  );
+
+  const { withProblems, withWarnings, total, projectsWithProblemsAndWarnings } =
+    countMonitorings(monitorsStateCountList);
+
   const elementProjects = document.getElementById("summaryItemAlerts");
   const projectsWithProblemsAndWarnigns = toPercentage(
     groupsList.length,
-    countProjectsWithProblemsOrWarnings(groupsList)
+    projectsWithProblemsAndWarnings
   ).formatted;
   inserTextToDOMElement({
     domElement: elementProjects,
@@ -23,7 +29,6 @@ const presentDashBoard = (groupsList: Gateway.GroupsListResponse) => {
   });
 
   const elementMonitorProblems = document.getElementById("summaryItemProblems");
-  const { withProblems, withWarnings, total } = countMonitorings(groupsList);
   const monitorsWithProblems = toPercentage(total, withProblems).formatted;
   inserTextToDOMElement({
     domElement: elementMonitorProblems,

@@ -1,5 +1,5 @@
 import { MonitoringMessage } from "../entity/group/group.interfaces.js";
-import { getElement } from "../util/domElements.js";
+import { getElement } from "../util/dom-elements.js";
 import { toPercentage } from "../util/to-percentage.js";
 
 export class AddOn {

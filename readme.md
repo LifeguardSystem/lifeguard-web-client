@@ -20,6 +20,12 @@ After installing all the dependencies with the command `npm install`, you can ru
 
 The static site resultant from the built project will be found on the folder `/_site`. When running locally, the project by default will not connect to real servers and, instead will run from locally sourced mock files, that can be edited in `/src/mock-local`.
 
+## Testing the code
+
+The test files are found on the `/test` directory.
+
+Attention: The test suite runs on the transpiled JS expected result from the TypeScript code, so before running `npm run test` you should run either `npm start` or `npm run build`.
+
 ## How to ship it
 
 The files that results from the build process of the project are by default saved at the directory `_site`. You can populate it either using `npm run build`.

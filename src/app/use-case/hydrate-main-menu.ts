@@ -1,6 +1,6 @@
 import { GroupsListResponse } from "../infra/gateway/useGroupsListSummary.js";
-import { getElement } from "../util/domElements.js";
-import { inserTextToDOMElement } from "../util/insertTextToDOMElement.js";
+import { getElement } from "../util/dom-elements.js";
+import { inserTextToDOMElement } from "../util/insert-text-to-DOM-element.js";
 
 export const hydrateMainMenu = async (params: {
   menuDomReference: HTMLElement;
