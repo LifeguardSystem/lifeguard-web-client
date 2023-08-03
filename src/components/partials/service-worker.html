@@ -6,19 +6,12 @@
     : "/service-worker.js";
 
   if (allowsServiceWorker) {
-    window.addEventListener(
-      "load",
-      () => {
-        navigator.serviceWorker
-          .register(serviceWorkerPath, { type: "module" })
-          .then((registration) => {
-            return null;
-          })
-          .catch((error) => {
-            console.error("ServiceWorker registration failed: ", error);
-          });
-      },
-      { once: true }
-    );
+    try {
+      navigator.serviceWorker.register(serviceWorkerPath, {
+        type: "module",
+      });
+    } catch (error) {
+      console.error("ServiceWorker registration failed: ", error);
+    }
   }
 </script>
