@@ -1,0 +1,18 @@
+<template id="leftMenu-template">
+  <style>
+    {% include 'organism/leftMenu/leftMenu.css' %}
+  </style>
+  <nav>
+    <h2>Selecione o projeto</h2>
+    <ul>
+      <slot></slot>
+    </ul>
+  </nav>
+  <button>
+    Abrir menu
+  </button>
+</template>
+
+<script>
+  {% include 'organism/leftMenu/leftMenu.js' %}
+</script>

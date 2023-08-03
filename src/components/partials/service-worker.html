@@ -1,0 +1,24 @@
+<script type="module">
+  const allowsServiceWorker = "serviceWorker" in navigator;
+  const isLocal = location.hostname === "localhost";
+  const serviceWorkerPath = isLocal
+    ? "/service-worker-mock.js"
+    : "/service-worker.js";
+
+  if (allowsServiceWorker) {
+    window.addEventListener(
+      "load",
+      () => {
+        navigator.serviceWorker
+          .register(serviceWorkerPath, { type: "module" })
+          .then((registration) => {
+            return null;
+          })
+          .catch((error) => {
+            console.error("ServiceWorker registration failed: ", error);
+          });
+      },
+      { once: true }
+    );
+  }
+</script>

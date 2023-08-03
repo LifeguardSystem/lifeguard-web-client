@@ -1,0 +1,18 @@
+<template id="details-card-template">
+  <style>
+    {% include 'molecule/detailsCard/detailsCard.css' %}
+  </style>
+  <custom-card type="secondary">
+    <div>
+      <h3>Título</h3>
+      <a>Detalhes do projeto</a>
+    </div>
+    <ul>
+      <slot></slot>
+    </ul>
+  </custom-card>
+</template>
+
+<script>
+  {% include 'molecule/detailsCard/detailsCard.js' %}
+</script>

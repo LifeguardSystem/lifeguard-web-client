@@ -1,0 +1,23 @@
+h2 {
+  position: sticky;
+  top: 4rem;
+  background: var(--select-background);
+  padding: 0.5rem 0;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.problems {
+  color: var(--problem);
+}
+
+.warnings {
+  color: var(--warning);
+}
+
+span {
+  display: inline-block;
+  height: 1.65rem;
+  width: 1.65rem;
+}

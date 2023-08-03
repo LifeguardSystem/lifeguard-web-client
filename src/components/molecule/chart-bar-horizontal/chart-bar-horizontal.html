@@ -1,0 +1,18 @@
+<template id="chart-bar-horizontal-template">
+  <style>
+    {% include 'molecule/chart-bar-horizontal/chart-bar-horizontal.css' %}
+  </style>
+  <div class="container">
+    <div class="bar-container">
+      <div class="bar" id="bar"></div>
+    </div>
+    <div class="content" id="content">
+      <span id="title"> Nome da fila </span>
+      <small class="value" id="value">0</small>
+    </div>
+  </div>
+</template>
+
+<script>
+  {% include 'molecule/chart-bar-horizontal/chart-bar-horizontal.js' %}
+</script>

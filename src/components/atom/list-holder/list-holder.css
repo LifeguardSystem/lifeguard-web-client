@@ -1,0 +1,23 @@
+div {
+  overflow: auto;
+  max-height: 25vh;
+  background: linear-gradient(
+      var(--select-background) 10%,
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(rgba(255, 255, 255, 0), var(--select-background) 70%),
+    radial-gradient(
+      farthest-side at 50% 0,
+      var(--color-grey-transparent),
+      transparent
+    ),
+    radial-gradient(
+      farthest-side at 50% 100%,
+      var(--color-grey-transparent),
+      transparent
+    );
+  background-size: 100% 1.5rem, 100% 1.5rem, 100% 0.75rem, 100% 0.75rem;
+  background-repeat: no-repeat;
+  background-position: top, bottom, top, bottom;
+  background-attachment: local, local, scroll, scroll;
+}

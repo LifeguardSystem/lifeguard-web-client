@@ -1,0 +1,19 @@
+<template id="menuItem-template">
+  <style>
+    {% include 'molecule/menuItem/menuItem.css' %}
+  </style>
+  <li>
+    <a>
+      <h3><slot></slot></h3>
+      <p><span id="monitoring"></span> monitoramentos</p>
+      <p>
+        <strong> <span id="problems"></span> problemas</strong>
+        | <span id="warnings"></span> avisos
+      </p>
+    </a>
+  </li>
+</template>
+
+<script>
+  {% include 'molecule/menuItem/menuItem.js' %}
+</script>

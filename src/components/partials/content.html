@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Cliente web de monitoria do Lifeguard System"
+    />
+    <meta name="theme-color" content="#5a5a78" />
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon/favicon-16x16.png"
+    />
+
+    <!-- CSS -->
+    <link href="/css/main.css" rel="stylesheet" />
+    <link
+      href="/css/dark-theme.css"
+      rel="stylesheet"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      href="/css/responsive.css"
+      re="stylesheet"
+      media="(max-width: 1300px)"
+    />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <title>{{title}} | Lifeguard</title>
+  </head>
+
+  <!-- Service Worker -->
+  {% include 'partials/service-worker.html' %}
+
+  <!-- Components -->
+  {% include 'partials/components.html' %}
+
+  <body>
+    <script src="/app/presenter/global.js" type="module"></script>
+    <custom-top-nav></custom-top-nav>
+    <main>
+      <custom-left-menu id="leftMenu">
+        <custom-skeleton height="5.5" style="width: 21.5rem; max-width: 100%">
+        </custom-skeleton>
+        <custom-skeleton height="5.5" style="width: 21.5rem; max-width: 100%">
+        </custom-skeleton>
+      </custom-left-menu>
+      <article>{% block content %}{% endblock %}</article>
+    </main>
+  </body>
+</html>

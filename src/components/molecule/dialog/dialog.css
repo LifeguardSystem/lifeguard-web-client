@@ -1,0 +1,27 @@
+dialog {
+  background: none;
+  border: none;
+  max-width: 60rem;
+  color: var(--text);
+}
+
+button {
+  background: none;
+  border: 1px solid;
+  padding: 0.5rem;
+  color: var(--click);
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: var(--click-background);
+}
+
+@media (max-width: 1000px) {
+  button {
+    width: 100%;
+  }
+}

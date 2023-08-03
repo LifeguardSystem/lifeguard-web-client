@@ -1,0 +1,19 @@
+<template id="dialog-template">
+  <style>
+    {% include 'molecule/dialog/dialog.css' %}
+  </style>
+  <button id="btn">
+    <slot name="btn">Abrir</slot>
+  </button>
+  <dialog id="dialog">
+    <custom-card id="content" type="secondary">
+      <h1>Definições do monitoramento</h1>
+      <hr />
+      <slot></slot>
+    </custom-card>
+  </dialog>
+</template>
+
+<script>
+  {% include 'molecule/dialog/dialog.js' %}
+</script>

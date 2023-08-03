@@ -1,0 +1,52 @@
+---
+permalink: "/"
+title: Página inicial
+---
+
+{% extends "partials/content.html" %} {% block content %}
+<h1>Todos os projetos</h1>
+
+<custom-summary>
+  <custom-summary-item>
+    <span id="summaryItemAlerts">-</span>
+    <span slot="title">Projetos com pelo menos um problema ou aviso</span>
+  </custom-summary-item>
+
+  <custom-summary-item>
+    <span id="summaryItemProblems">-</span>
+    <span slot="title">Do total de monitoramentos com problemas</span>
+  </custom-summary-item>
+
+  <custom-summary-item>
+    <span id="summaryItemWarnings">-</span>
+    <span slot="title">Do total de monitoramentos com avisos</span>
+  </custom-summary-item>
+</custom-summary>
+
+<custom-card>
+  <custom-title type="problems">Problemas</custom-title>
+  <custom-card-list id="cardProblems" type="problems">
+    <custom-skeleton height="7"></custom-skeleton>
+    <custom-skeleton height="7"></custom-skeleton>
+  </custom-card-list>
+</custom-card>
+
+<custom-card>
+  <custom-title type="warnings">Avisos</custom-title>
+  <custom-card-list id="cardWarnings" type="warnings">
+    <custom-skeleton height="7"></custom-skeleton>
+    <custom-skeleton height="7"></custom-skeleton>
+  </custom-card-list>
+</custom-card>
+
+<custom-card>
+  <custom-title type="normal">Normal</custom-title>
+  <custom-card-list id="cardNormal" type="normal">
+    <custom-skeleton height="7"></custom-skeleton>
+    <custom-skeleton height="7"></custom-skeleton>
+  </custom-card-list>
+</custom-card>
+
+<script src="/app/presenter/home.js" type="module"></script>
+
+{% endblock %}

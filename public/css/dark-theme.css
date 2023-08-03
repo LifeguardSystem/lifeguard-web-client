@@ -1,0 +1,16 @@
+:root {
+  --color-blue: rgb(140, 140, 255);
+  --color-blue-dark: var(--color-blue);
+  --color-grey: rgb(60, 60, 80);
+  --color-grey-light: rgb(160, 160, 180);
+  --color-grey-transparent: rgb(15, 15, 30, 0.3);
+
+  /* Colors theme */
+  --text: var(--color-grey-lighter);
+  --primary: var(--color-grey-light);
+  --primary-light: var(--color-grey-dark);
+  --background: var(--color-grey-dark);
+  --click: var(--color-blue);
+  --select: var(--color-blue-dark);
+  --select-background: var(--color-grey);
+}

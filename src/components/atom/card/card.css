@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  max-width: 100%;
+}
+
+section {
+  padding: 1rem;
+  padding-top: 0.5rem;
+  background: var(--select-background);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.secondary {
+  border: 1px solid var(--primary-light);
+  box-shadow: none;
+}
