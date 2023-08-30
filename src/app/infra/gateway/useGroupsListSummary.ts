@@ -18,7 +18,7 @@ export class useGroupsListSummary extends Store {
       storeName: "groupsList",
       endpoint: "ENDPOINT",
       ttlInSeconds: 30,
-      fetch: new FetchAdapter(domain, "/groups/summary"),
+      fetch: new FetchAdapter(domain, "/lifeguard/groups/summary"),
       local: new LocalStorageAdapter("groupsList"),
       cacheManager: new LocalStorageAdapter("cacheManager"),
     });

@@ -3,7 +3,7 @@ import { jbp } from "./groupIndividual/jbp.js";
 import { groupsSummary } from "./groups/groupsSummary.js";
 
 export const mockHandlers = {
-  "/groups/summary": groupsSummary,
-  "/groups/?name=JBP": jbp,
-  "/groups/?name=bees": bees,
+  "/lifeguard/groups/summary": groupsSummary,
+  "/lifeguard/groups/JBP": jbp,
+  "/lifeguard/groups/bees": bees,
 };

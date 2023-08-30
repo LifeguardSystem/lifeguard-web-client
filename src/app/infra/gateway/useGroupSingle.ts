@@ -16,7 +16,7 @@ export class useGroupSingle extends Store {
       storeName: groupID,
       endpoint: "ENDPOINT",
       ttlInSeconds: 30,
-      fetch: new FetchAdapter(domain, `/groups/?name=${groupID}`),
+      fetch: new FetchAdapter(domain, `/lifeguard/groups/${groupID}`),
       local: new LocalStorageAdapter(groupID),
       cacheManager: new LocalStorageAdapter("cacheManager"),
     });
