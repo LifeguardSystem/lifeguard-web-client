@@ -52,6 +52,7 @@ export class FetchAdapter implements ExternalAdapter {
         method,
         headers: this.#setHeaders(),
         body,
+        credentials: "include",
       });
 
       const serverReturnedError = !response.ok;
