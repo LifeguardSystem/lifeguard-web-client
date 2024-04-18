@@ -7,12 +7,10 @@ export class Store {
 
   storeName: string;
   params?: { [key: string]: string };
-  endpoint: string;
   ttlInSeconds: number;
 
   constructor(parameters: {
     storeName: string;
-    endpoint: string;
     params?: { [key: string]: string };
     ttlInSeconds?: number;
     fetch: Interface.ExternalAdapter;
@@ -21,7 +19,6 @@ export class Store {
   }) {
     this.storeName = parameters.storeName;
     this.params = parameters.params;
-    this.endpoint = parameters.endpoint;
     this.ttlInSeconds = parameters.ttlInSeconds || 86400; //24 hours
 
     this.#local = parameters.local;

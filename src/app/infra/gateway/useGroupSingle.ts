@@ -14,7 +14,6 @@ export class useGroupSingle extends Store {
   constructor(groupID: string) {
     super({
       storeName: groupID,
-      endpoint: "ENDPOINT",
       ttlInSeconds: 30,
       fetch: new FetchAdapter(domain, `/lifeguard/groups/${groupID}`),
       local: new LocalStorageAdapter(groupID),

@@ -16,7 +16,6 @@ export class useGroupsListSummary extends Store {
   constructor() {
     super({
       storeName: "groupsList",
-      endpoint: "ENDPOINT",
       ttlInSeconds: 30,
       fetch: new FetchAdapter(domain, "/lifeguard/groups/summary"),
       local: new LocalStorageAdapter("groupsList"),
